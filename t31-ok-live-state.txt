@@ -1,0 +1,180 @@
+# Snapshot from the board ~9 min after the boot in t31-ok-both-streams-with-el150-cdr.txt:
+# dmesg, interrupt counts, processes. avpu/isp IRQs still climbing = encoder running.
+ 06:55:22 up 9 min,  load average: 0.74, 0.58, 0.31
+
+[    0.000000] Linux version 7.3.0-rc2-g101616aa8244 (builder@buildhost) (mipsel-linux-gcc.br_real (Buildroot -gdb75a8ee-dirty) 15.2.0, GNU ld (GNU Binutils) 2.44) #1 Sat Oct 10 13:16:04 IST 2026
+[    0.000000] CPU0 revision is: 00d00100 (Ingenic XBurst)
+[    0.000000] FPU revision is: 00b70000
+[    0.000000] MIPS: machine is Thingino T31 Generic Board
+[    0.000000] earlycon: t31_uart0 MMIO:0x10031000 (options '115200n8')
+[    0.000000] printk: legacy bootconsole [t31_uart0] enabled
+[    0.000000] User-defined physical RAM map overwrite
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] Primary instruction cache 32kB, VIVT, 8-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 8-way, VIPT, no aliases, linesize 32 bytes
+[    0.000000] MIPS secondary cache 128kB, 8-way, linesize 32 bytes.
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x00000000027fffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x00000000027fffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x00000000027fffff]
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Kernel command line: mem=40M@0x0 rmem=24M@0x2800000 console=ttyS1,115200n8 panic=10 rw root=/dev/nfs nfsroot=192.0.2.26:/srv/nfs/nfsroot-k612,v3,tcp,nolock ip=192.0.2.222:192.0.2.26:192.0.2.1:255.255.255.0:t31:eth0:off init=/init earlycon
+[    0.000000] Unknown kernel command line parameters "rmem=24M@0x2800000", will be passed to user space.
+[    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[    0.000000] Dentry cache hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 10240
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS: 256
+[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.000000] clocksource: ingenic-timer: mask: 0xffff max_cycles: 0xffff, max_idle_ns: 1215128 ns
+[    0.000002] sched_clock: 16 bits at 24MHz, resolution 41ns, wraps every 1365312ns
+[    0.002348] Console: colour dummy device 80x25
+[    0.001382] Calibrating delay loop... 952.32 BogoMIPS (lpj=1904640)
+[    0.004922] pid_max: default: 32768 minimum: 301
+[    0.007077] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.009014] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.011649] VFS: Finished mounting rootfs on nullfs
+[    0.015738] Memory: 29208K/40960K available (7672K kernel code, 579K rwdata, 1740K rodata, 240K init, 266K bss, 10940K reserved, 0K cma-reserved, 0K highmem)
+[    0.016835] devtmpfs: initialized
+[    0.019579] posixtimers hash table entries: 512 (order: 0, 2048 bytes, linear)
+[    0.018721] futex hash table entries: 256 (3072 bytes on 1 NUMA nodes, total 3 KiB, linear).
+[    0.019893] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.021045] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.022603] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.023903] gpio gpiochip2: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.026350] jz4780-dma 13420000.dma-controller: JZ4780 DMA controller initialised
+[    0.026194] usbcore: registered new interface driver usbfs
+[    0.026357] usbcore: registered new interface driver hub
+[    0.029000] usbcore: registered new device driver usb
+[    0.031561] gpio-12 (sda): enforced open drain please flag it properly in DT/ACPI DSDT/board file
+[    0.032384] gpio-13 (scl): enforced open drain please flag it properly in DT/ACPI DSDT/board file
+[    0.033257] i2c-gpio i2c-gpio-0: using lines 12 (SDA) and 13 (SCL)
+[    0.034125] pps_core: LinuxPPS API ver. 1 registered
+[    0.036382] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.037500] PTP clock support registered
+[    0.040170] clocksource: Switched to clocksource ingenic-timer
+[    0.041082] NET: Registered PF_INET protocol family
+[    0.040737] IP idents hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.040332] tcp_listen_portaddr_hash hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.040707] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.040365] TCP established hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.039917] TCP bind hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.041611] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.039929] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.041220] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.041978] RPC: Registered named UNIX socket transport module.
+[    0.042504] RPC: Registered udp transport module.
+[    0.041777] RPC: Registered tcp transport module.
+[    0.041083] RPC: Registered tcp-with-tls transport module.
+[    0.041184] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.040531] workingset: timestamp_bits=30 (anon: 25) max_order=13 bucket_order=0 (anon: 0)
+[    0.040912] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.041903] io scheduler mq-deadline registered
+[    0.041012] io scheduler kyber registered
+[    0.042347] io scheduler bfq registered
+[    0.040382] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.040565] printk: console [ttyS1] disabled
+[    0.042418] 10031000.serial: ttyS1 MMIO:0x10031000 (irq = 50, base_baud = 1500000) is a 16550A
+[    0.040254] printk: console [ttyS1] enabled
+[    0.040418] printk: legacy bootconsole [t31_uart0] disabled
+[    0.042031] ingenic-trng 10072000.trng: Ingenic DTRNG driver registered
+[    0.042124] random: crng init done
+[    0.041327] brd: module loaded
+[    0.041914] loop: module loaded
+[    0.040731] 6 fixed-partitions partitions found on MTD device spi0.0
+[    0.040754] Creating 6 MTD partitions on "spi0.0":
+[    0.040761] 0x000000000000-0x000000040000 : "boot"
+[    0.041632] 0x000000040000-0x000000050000 : "env"
+[    0.040875] 0x000000050000-0x000000250000 : "kernel"
+[    0.041745] 0x000000250000-0x000000750000 : "rootfs"
+[    0.041208] 0x000000750000-0x000000800000 : "rootfs_data"
+[    0.041188] 0x000000000000-0x000001000000 : "all"
+[    0.041207] mtd: partition "all" extends beyond the end of device "spi0.0" -- size truncated to 0x800000
+[    0.039974] ingenic-mac 134b0000.ethernet: IRQ eth_wake_irq not found
+[    0.039995] ingenic-mac 134b0000.ethernet: IRQ sfty not found
+[    0.040106] ingenic-mac 134b0000.ethernet: PTP uses main clock
+[    0.040518] ingenic-mac 134b0000.ethernet: User ID: 0x20, Synopsys ID: 0x37
+[    0.040571] ingenic-mac 134b0000.ethernet: 	DWMAC1000
+[    0.040579] ingenic-mac 134b0000.ethernet: DMA HW capability register supported
+[    0.040587] ingenic-mac 134b0000.ethernet: Active PHY interface: RMII (4)
+[    0.040594] ingenic-mac 134b0000.ethernet: RX Checksum Offload Engine supported
+[    0.040600] ingenic-mac 134b0000.ethernet: COE Type 2
+[    0.040607] ingenic-mac 134b0000.ethernet: TX Checksum insertion supported
+[    0.040614] ingenic-mac 134b0000.ethernet: Enhanced/Alternate descriptors
+[    0.040620] ingenic-mac 134b0000.ethernet: Enabled extended descriptors
+[    0.040627] ingenic-mac 134b0000.ethernet: Ring mode enabled
+[    0.040633] ingenic-mac 134b0000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    0.040647] ingenic-mac 134b0000.ethernet: device MAC address 02:00:00:AA:BB:04
+[    0.042311] dwc2 13500000.usb: DWC OTG Controller
+[    0.042355] dwc2 13500000.usb: new USB bus registered, assigned bus number 1
+[    0.042381] dwc2 13500000.usb: irq 21, io mem 0x13500000
+[    0.040991] hub 1-0:1.0: USB hub found
+[    0.041048] hub 1-0:1.0: 1 port detected
+[    0.041636] i2c_dev: i2c /dev entries driver
+[    0.042042] jz4780-i2c 10051000.i2c: Bus frequency is 100 KHz
+[    0.040002] clocksource: ingenic-ost: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.040033] clocksource: Switched to clocksource ingenic-ost
+[    0.040051] sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+[    0.040559] usbcore: registered new interface driver usbhid
+[    0.040570] usbhid: USB HID core driver
+[    0.041207] NET: Registered PF_INET6 protocol family
+[    0.077177] Segment Routing with IPv6
+[    0.077217] In-situ OAM (IOAM) with IPv6
+[    0.077291] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    0.077833] NET: Registered PF_PACKET protocol family
+[    0.106886] jz4740-mmc 13450000.mmc: Ingenic SD/MMC card driver registered
+[    0.106906] jz4740-mmc 13450000.mmc: Using DMA, 4-bit mode
+[    0.107924] ingenic-mac 134b0000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[    0.127974] ingenic-mac 134b0000.ethernet eth0: PHY [stmmac-0:00] driver [Generic PHY] (irq=POLL)
+[    0.140615] ingenic-mac 134b0000.ethernet eth0: No Safety Features support found
+[    0.142017] ingenic-mac 134b0000.ethernet eth0: PTP not supported by HW
+[    0.142031] ingenic-mac 134b0000.ethernet eth0: configuring for phy/rmii link mode
+[    0.307271] jz4740-mmc 13450000.mmc: no support for card's volts
+[    0.307289] mmc0: error -22 whilst initialising SDIO card
+[    2.216281] ingenic-mac 134b0000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+[    2.240054] IP-Config: Complete:
+[    2.240067]      device=eth0, hwaddr=02:00:00:AA:BB:04, ipaddr=192.0.2.222, mask=255.255.255.0, gw=192.0.2.1
+[    2.240083]      host=t31, domain=, nis-domain=(none)
+[    2.240088]      bootserver=192.0.2.26, rootserver=192.0.2.26, rootpath=
+[    2.240259] clk: Disabling unused clocks
+[    2.333870] VFS: Mounted root (nfs filesystem) on device 0:16.
+[    2.335193] devtmpfs: mounted
+[    2.341517] VFS: Pivoted into new rootfs
+[    2.341900] Freeing unused kernel image (initmem) memory: 240K
+[    2.341917] This architecture does not have kernel memory protection.
+[    2.341937] Run /init as init process
+[    2.341943]   with arguments:
+[    2.341946]     /init
+[    2.341949]   with environment:
+[    2.341952]     HOME=/
+[    2.341956]     TERM=linux
+[    2.341959]     rmem=24M@0x2800000
+[    2.400754] process '/usr/bin/busybox' started with executable stack
+[    9.804481] rmem: loading out-of-tree module taints kernel.
+[    9.854968] @@@@ avpu driver ok(version H20220825a) @@@@@
+[    9.911277] tx_isp_subdev_init: isp-m0 mem_region busy for 0x13300000-0x133fffff, continuing with shared ioremap
+[   24.338043] gc4653: MCLK 'cim' enabled, rate=4687500 Hz
+[   24.476130]   sensor+: 00000000: 00000000 00000000 00000000 00000000
+[   24.476149]   sensor+: 00000010: 00000000 00000000 00000000 00000000
+[   24.476158]   sensor+: 00000020: c001ecb8 00000a00 000005a0 001e0001
+[   24.476166]   sensor+: 00000030: 00000000 00000000 82165980 00000000
+[   24.540706] -----sensor_detect: 1089 ret = 0, v = 0x46
+[   24.541374] -----sensor_detect: 1097 ret = 0, v = 0x53
+[   24.541381] gc4653 chip found @ 0x29 (i2c-gpio-0)
+[   24.541381]  sensor drv version H20211211a
+[   24.673568] tx-isp: QBUF guard: rmem window 0x02800000+0x1800000
+[   24.673677] gc4653 stream on
+ interrupts (isp/avpu):
+  30:      25191  INTC       30  isp-w02
+  62:      25165  INTC       62  avpu.0
+ processes:
+  612 root     68728 S    /usr/bin/rvd -c /etc/raptor.conf
+  650 root     55992 S    /usr/bin/rwd -c /etc/raptor.conf
+  652 root     54004 S    /usr/bin/rsd -c /etc/raptor.conf
