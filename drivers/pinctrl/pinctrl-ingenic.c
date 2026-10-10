@@ -3949,8 +3949,20 @@ static int ingenic_gpio_get(struct gpio_chip *gc, unsigned int offset)
 static int ingenic_gpio_direction_output(struct gpio_chip *gc,
 		unsigned int offset, int value)
 {
+	int ret;
+
+	/*
+	 * On X1000 and later the direction change is applied by loading the
+	 * PZ shadow bank into the port (PZ_GID2LD), which also copies the
+	 * shadow PAT0 over the value just written to PAT0. Change the
+	 * direction first, then write the value.
+	 */
+	ret = pinctrl_gpio_direction_output(gc, offset);
+	if (ret)
+		return ret;
+
 	ingenic_gpio_set(gc, offset, value);
-	return pinctrl_gpio_direction_output(gc, offset);
+	return 0;
 }
 
 static inline void ingenic_config_pin(struct ingenic_pinctrl *jzpc,
