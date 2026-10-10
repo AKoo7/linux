@@ -2934,6 +2934,8 @@ static const u32 t31_pull_downs[3] = {
 
 static const struct regmap_range t31_access_ranges[] = {
 	regmap_reg_range(0x0000, 0x3000 - 4),
+	/* PZ shadow bank: REG_PZ_BASE(0x1000) = 0x7000, PZ_GID2LD at 0x70f0 */
+	regmap_reg_range(0x7000, 0x8000 - 4),
 };
 
 static const struct regmap_access_table t31_access_table = {
